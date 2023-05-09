@@ -15,7 +15,7 @@ Output: false
 """
 
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+    def searchMatrix(self, matrix, target: int) -> bool:
 
         for i in range(len(matrix)):
             c = len(matrix[i])-1

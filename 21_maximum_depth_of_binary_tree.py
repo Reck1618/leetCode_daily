@@ -8,8 +8,11 @@
 #         self.right = right
 
 # Recursive DFS
+from collections import deque
+
+
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root) -> int:
         if not root:
             return 0
         else:
@@ -17,7 +20,7 @@ class Solution:
         
 # Iterative DFS
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root) -> int:
         stack = [[root, 1]]
         res = 0
 
@@ -33,7 +36,7 @@ class Solution:
 
 # BFS
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root) -> int:
         q = deque()
         if root:
             q.append(root)
