@@ -19,7 +19,7 @@ Output: [0,1]
 
 """
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums, target: int):
         temp = {}
         for i in range(len(nums)):
             if target - nums[i] in temp:
