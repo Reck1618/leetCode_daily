@@ -15,5 +15,5 @@ Output: true
 """
 
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums):
         return len(set(nums)) < len(nums)
