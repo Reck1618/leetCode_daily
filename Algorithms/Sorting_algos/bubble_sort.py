@@ -1,5 +1,5 @@
 """
-Implement Bubble sort.
+Implement Bubble Sort.
 -> Bubble sort is a sorting algorithm that compares two adjacent elements and swaps them until they are in the intended order.
 
 Time = O(n^2)
