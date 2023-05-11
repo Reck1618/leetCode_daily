@@ -1,5 +1,9 @@
 """
-Implement Bubble sort
+Implement Bubble sort.
+-> Bubble sort is a sorting algorithm that compares two adjacent elements and swaps them until they are in the intended order.
+
+Time = O(n^2)
+Space = O(1)
 """
 
 def bubble_sort(arr):
