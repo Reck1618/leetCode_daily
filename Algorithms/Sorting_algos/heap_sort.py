@@ -5,8 +5,8 @@ Implement Heap Sort.
     - The largest element (the root node) is removed and placed at the end of the array. The heap is then reconstructed with the remaining elements, 
       And the next largest element is removed and placed at the second-last position of the array. This process is repeated until all elements are sorted
 
-Time - O(n^2)
-Space - O(log n)    
+Time - O(n log n)
+Space - O(1)    
 """
 
 def heapify(arr, len_arr, index):
