@@ -1,9 +1,10 @@
 """
 Implement DFS.
 -> Depth-first search (DFS) is a method for exploring a tree or graph. In a DFS, you go as deep as possible down one path before backing up and trying a different one.
+    - we are doing traversal, and not searching for a target number.
 
 Time - O(n)
-Space - O(log n)
+Space - O(n)
 """
 class Node:
     def __init__(self, key):
