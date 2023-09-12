@@ -1,2 +1,2 @@
 # leetCode_daily
-Solving one leetCode daily, until I become a DSA Champ.
+Working on my DSA.
