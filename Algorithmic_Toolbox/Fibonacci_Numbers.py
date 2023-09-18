@@ -20,17 +20,16 @@ def efficient_fibonacci(n):
         return fib[n]
 
 # Efficient algorithm with memoization (time complexity: O(n), space complexity: O(n))
-def efficient_fibonacci_memoization(n, seen=None):
-    if seen is None:
-        seen = []
+def efficient_fibonacci_memoization(n, memo=None):
+    if memo is None:
+        memo = [None] * (n + 1)
     if n < 2:
         return n
-    if n in seen:
-        return seen[n]
+    if memo[n] is not None:
+        return memo[n]
     else:
-        result = efficient_fibonacci_memoization(n-1, seen) + efficient_fibonacci_memoization(n-2, seen)
-        seen.append(result)
-        return result
+        memo[n] = efficient_fibonacci_memoization(n-1, memo) + efficient_fibonacci_memoization(n-2, memo)
+        return memo[n]
 
 
 # Efficient algorithm with space optimization (time complexity: O(n), space complexity: O(1))
