@@ -1,4 +1,9 @@
-# Definition: The Fibonacci Sequence is a series of numbers where the next number is found by adding up the two numbers before it.
+"""
+
+Definition: The Fibonacci Sequence is a series of numbers where the next number is found by adding up the two numbers before it.
+The first two numbers of the Fibonacci Sequence are 0 and 1. The third number is 0 + 1 = 1, the fourth number is 1 + 1 = 2, the fifth number is 1 + 2 = 3, and so on.
+
+"""
 
 # Algorithms to find fibonacci numbers :
 

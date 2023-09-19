@@ -1,4 +1,12 @@
-# Definition: Greatest common divisor (GCD) of two integers is the largest integer that divides both numbers without leaving a remainder.
+"""
+
+Definition: Greatest common divisor (GCD) of two integers is the largest integer that divides both numbers without leaving a remainder.
+To find the GCD efficiently, we use the Euclidean algorithm.
+
+We find the GCD of two numbers a and b, where a >= b, by repeatedly dividing a by b and setting a to b and b to the remainder until the remainder is 0.
+The remainder of a and b is called a prime and is denoted by a' (a_prime). The GCD will be the last non-zero remainder.
+
+"""
 
 # Algorithms to find GCD of two numbers :
 
