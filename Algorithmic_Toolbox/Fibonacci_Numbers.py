@@ -2,14 +2,14 @@
 
 # Algorithms to find fibonacci numbers :
 
-# Naive algorithm (time complexity: O(2^n), space complexity: O(n))
+# Naive algorithm (time complexity: O(2^n), space complexity: O(n)) / Top-down approach
 def naive_fibonacci(n):
     if n <= 1:
         return n
     else:
         return naive_fibonacci(n-1) + naive_fibonacci(n-2)
 
-# Efficient algorithm (time complexity: O(n), space complexity: O(n))
+# Efficient algorithm (time complexity: O(n), space complexity: O(n)) / Bottom-up approach
 def efficient_fibonacci(n):
     if n <= 1:
         return n
