@@ -20,9 +20,10 @@ Output: [0,1]
 """
 class Solution:
     def twoSum(self, nums, target: int):
-        temp = {}
+        store = {}
+
         for i in range(len(nums)):
-            if target - nums[i] in temp:
-                return (temp[target-nums[i]],i)
+            if target - nums[i] in store:
+                return [store[target - nums[i]], i]
             else:
-                temp[nums[i]] = i
+                store[nums[i]] = i
