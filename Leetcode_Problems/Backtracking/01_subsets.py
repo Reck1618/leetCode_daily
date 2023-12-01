@@ -31,3 +31,20 @@ class Solution:
             backtrack()
 
         return result
+
+
+# Another solution
+class Solutions:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = []
+
+        def backtrack(start=0, cur_set=[]):
+            result.append(cur_set[:])
+
+            for i in range(start, len(nums)):
+                cur_set.append(nums[i])
+                backtrack(i+1, cur_set)
+                cur_set.pop()
+
+        backtrack()
+        return result
