@@ -12,6 +12,16 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
+    # Print the tree (inorder traversal)
+    def print_tree(self):
+        return self._print_tree(self.root)
+
+    def _print_tree(self, root, result = []):
+        if root:
+            self._print_tree(root.left, result)
+            result.append(root.val)
+            self._print_tree(root.right, result)
+        return result
 
     # Insert a node in the tree
     def insert(self, key):
@@ -28,16 +38,6 @@ class BinarySearchTree:
 
         return root
 
-    # Print the tree (inorder traversal)
-    def print_tree(self):
-        self._print_tree(self.root)
-
-    def _print_tree(self, root):
-        if root:
-            self._print_tree(root.left)
-            print(root.val)
-            self._print_tree(root.right)
-
 
 
 
@@ -46,4 +46,6 @@ tree = BinarySearchTree()
 tree.insert(50)
 tree.insert(30)
 tree.insert(60)
-tree.print_tree()
+tree.insert(10)
+tree.insert(40)
+print(tree.print_tree())
