@@ -35,7 +35,7 @@ class Solution:
 
 # Another solution
 class Solutions:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums):
         result = []
 
         def backtrack(start=0, cur_set=[]):

@@ -4,7 +4,7 @@ Implement Binary Search.
     - Binary search can be implemented only on a sorted list of items. If the elements are not sorted already, we need to sort them first
 
 Time - O(log n)
-Space - O(1)   
+Space - O(1)
 """
 
 def binary_search(arr, target):
@@ -20,7 +20,7 @@ def binary_search(arr, target):
         else:
             left = mid + 1
 
-    return False         
+    return False
 
 
 arr = [1,2,3,4,5,6,7,8,9,10]
