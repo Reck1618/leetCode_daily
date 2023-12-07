@@ -14,7 +14,7 @@ Input: head = []
 Output: []
 """
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def reverseList(self, head):
         ans = None
         while head:
             temp = head
