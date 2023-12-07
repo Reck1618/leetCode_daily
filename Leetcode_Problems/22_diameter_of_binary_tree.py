@@ -32,5 +32,6 @@ class Solution:
                 right = depth(root.right)
                 result = max(result, left + right)
                 return 1 + max(left, right)
+
         depth(root)
         return result

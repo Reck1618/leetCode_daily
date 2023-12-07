@@ -186,7 +186,30 @@ class BinarySearchTree:
             return self._lca(root.left, node1, node2)
         if root.val < node1 and root.val < node2:
             return self._lca(root.right, node1, node2)
+
         return root.val
+
+    # Find the lowest common ancestor of two nodes in bt
+    def lca_bt(self, node1, node2):
+        return self._lca_bt(self.root, node1, node2)
+
+    def _lca_bt(self, root, node1, node2):
+        if root is None:
+            return None
+        if root.val == node1 or root.val == node2:
+            return root.val
+
+        left = self._lca_bt(root.left, node1, node2)
+        right = self._lca_bt(root.right, node1, node2)
+
+        if left and right:
+            return root.val
+        if left:
+            return left
+        if right:
+            return right
+
+        return None
 
 
 # Driver code
