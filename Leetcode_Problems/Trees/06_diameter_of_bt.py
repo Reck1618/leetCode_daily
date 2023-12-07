@@ -12,3 +12,20 @@ Example 2:
 Input: root = [1,2]
 Output: 1
 """
+class Solution:
+    def diameterOfBinaryTree(self, root) -> int:
+        result = 0
+
+        def depth(root):
+            nonlocal result
+
+            if not root:
+                return 0
+            else:
+                left = depth(root.left)
+                right = depth(root.right)
+                result = max(result, left + right)
+                return 1 + max(left, right)
+
+        depth(root)
+        return result
