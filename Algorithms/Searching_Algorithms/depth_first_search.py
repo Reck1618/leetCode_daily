@@ -8,14 +8,13 @@ Space - O(n)
 """
 class Node:
     def __init__(self, key):
+        self.val = key
         self.left = None
         self.right = None
-        self.val = key
+
 
 # Inorder
-def dfs(root, visited_nodes = None):
-    if visited_nodes is None:
-        visited_nodes = []
+def dfs(root, visited_nodes = []):
 
     if root:
         dfs(root.left, visited_nodes)
@@ -26,11 +25,11 @@ def dfs(root, visited_nodes = None):
 
 
 # Driver code
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
+root = Node(5)
+root.left = Node(4)
+root.right = Node(10)
+root.left.left = Node(2)
+root.left.right = Node(3)
 
 # Traversal
 print(dfs(root))
