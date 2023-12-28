@@ -52,7 +52,6 @@ class Solution:
         return root
 
     def min_node(self, node):
-        print("world")
         current = node
         while current.left:
             current = current.left
