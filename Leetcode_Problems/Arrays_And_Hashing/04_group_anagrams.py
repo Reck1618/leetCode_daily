@@ -14,9 +14,11 @@ Example 3:
 Input: strs = ["a"]
 Output: [["a"]]
 """
+from collections import defaultdict
+
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        ans = collections.defaultdict(list)
+    def groupAnagrams(self, strs):
+        ans = defaultdict(list)
         for st in strs:
             ans[str(sorted(st))].append(st)
         return list(ans.values())
