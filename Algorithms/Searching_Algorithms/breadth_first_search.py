@@ -4,8 +4,8 @@ Implement BFS.
    It starts at the tree's root or graph and searches/visits all nodes at the current depth level before moving on to the nodes at the next depth level.
     - we are doing traversal, and not searching for a target number.
 
-Time -
-Space -
+Time - O(N)
+Space - O(N)
 """
 
 from collections import deque
@@ -36,6 +36,28 @@ def bfs(root, result = []):
 
     return result
 
+# Recursive
+def bfs_recursive(root, result = []):
+    if root is None:
+        return result
+
+    queue = deque([root])
+
+    def helper(queue, result):
+        if not queue:
+            return result
+
+        node = queue.popleft()
+        result.append(node.val)
+
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+
+        return helper(queue, result)
+
+    return helper(queue, result)
 
 
 # Driver code
