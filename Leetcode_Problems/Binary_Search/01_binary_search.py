@@ -15,10 +15,10 @@ Explanation: 2 does not exist in nums so return -1
 
 class Solution:
     def search(self, nums, target):
-        left, right = 0, len(nums) - 1
+        left, right = 0, len(nums)
 
         while left <= right:
-            mid = (left + right) // 2
+            mid = left + (right - left) // 2
 
             if nums[mid] == target:
                 return mid
