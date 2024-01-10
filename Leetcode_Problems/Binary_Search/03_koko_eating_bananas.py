@@ -16,4 +16,23 @@ Example 3:
 Input: piles = [30,11,23,4,20], h = 6
 Output: 23
 """
+import math
+
+class Solution:
+    def minEatingSpeed(self, piles, h):
+        left, right = 1, max(piles)
+        result = float("inf")
+
+        while left <= right:
+            mid = left + (right - left) // 2
+            t_time = 0
+
+            for p in piles:
+                t_time += math.ceil(float(p)/mid)
+
+            if t_time <= h:
+                result = mid
+                right = mid - 1
+            else:
+                left = mid + 1
 
