@@ -41,3 +41,15 @@ class Solution:
             left += 1
             right -= 1
         return True
+
+
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        n_str = ""
+
+        for i in s:
+            if i.isalnum():
+                n_str += i.lower()
+
+        return n_str == n_str[::-1]
