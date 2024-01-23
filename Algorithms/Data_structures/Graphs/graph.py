@@ -38,3 +38,4 @@ simple_graph.print_graph()
 # Check if nodes are connected
 print(f"Are nodes 1 and 2 connected? {simple_graph.are_connected(1, 2)}")
 print(f"Are nodes 1 and 4 connected? {simple_graph.are_connected(1, 4)}")
+print(f"Are nodes 1 and 4 connected? {simple_graph.are_connected(2, 4)}")
