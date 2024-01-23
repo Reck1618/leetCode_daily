@@ -18,6 +18,21 @@ class SimpleGraph:
         self.nodes[node1].add(node2)
         self.nodes[node2].add(node1)
 
+    def remove_edge(self, node1, node2):
+        if node1 in self.nodes and node2 in self.nodes:
+            self.nodes[node1].discard(node2)
+            self.nodes[node2].discard(node1)
+
+    def remove_node(self, key):
+        if key in self.nodes:
+            # Remove all edges to the node
+            for node in self.nodes[key]:
+                self.nodes[node].remove(key)
+
+            # Remove the node itself
+            del self.nodes[key]
+
+
     def are_connected(self, node1, node2):
         return node2 in self.nodes.get(node1, set())
 
@@ -39,3 +54,13 @@ simple_graph.print_graph()
 print(f"Are nodes 1 and 2 connected? {simple_graph.are_connected(1, 2)}")
 print(f"Are nodes 1 and 4 connected? {simple_graph.are_connected(1, 4)}")
 print(f"Are nodes 1 and 4 connected? {simple_graph.are_connected(2, 4)}")
+
+# Remove an edge
+simple_graph.remove_edge(1, 2)
+print("Removed edge 1-2")
+print(f"Are nodes 1 and 2 connected? {simple_graph.are_connected(1, 2)}")
+
+# Remove a node
+simple_graph.remove_node(4)
+print("Removed node 4")
+simple_graph.print_graph()

@@ -34,9 +34,6 @@ class Graph:
         else:
             return self.nodes[key]
 
-    def get_node(self, key):
-        return self.nodes.get(key, None)
-
     def add_edge(self, from_node, to_node, weight=0):
         # Use add_node method to ensure nodes exist in the graph
         from_node_obj = self.add_node(from_node)
@@ -45,6 +42,15 @@ class Graph:
         if from_node_obj and to_node_obj:  # Check if both nodes were added (not None)
             from_node_obj.add_neighbor(to_node_obj, weight)
             to_node_obj.add_neighbor(from_node_obj, weight)
+
+    def remove_node(self, key):
+        pass
+
+    def remove_edge(self, from_node, to_node):
+        pass
+
+    def get_node(self, key):
+        return self.nodes.get(key, None)
 
     def get_nodes(self):
         return list(self.nodes.keys())  # Convert keys to list for consistent result
