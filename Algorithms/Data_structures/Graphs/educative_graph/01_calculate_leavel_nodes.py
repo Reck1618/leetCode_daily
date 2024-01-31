@@ -5,7 +5,7 @@ Implement a function that returns the number of nodes at a given level starting 
 from collections import deque
 
 # First solution
-def number_of_nodes(graph, level):
+def number_of_nodes_one(graph, level):
     """
     Calculates the number of nodes at given level
     :param graph: The graph
@@ -40,7 +40,7 @@ def number_of_nodes(graph, level):
 
 
 # Second solution
-def number_of_nodes(graph, level):
+def number_of_nodes_two(graph, level):
     """
     Calculates the number of nodes at given level
     :param graph: The graph
@@ -71,3 +71,15 @@ def number_of_nodes(graph, level):
 
     return len(queue)
 
+# Main to test the above program
+if __name__ == "__main__":
+    from graph import Graph
+    V = 5
+    g = Graph(V)
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+
+    print(number_of_nodes_one(g, 2))
+    print(number_of_nodes_one(g, 2))
