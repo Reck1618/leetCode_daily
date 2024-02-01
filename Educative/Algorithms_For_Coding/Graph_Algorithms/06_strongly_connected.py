@@ -1,9 +1,17 @@
+from graph import Graph
+
 def is_strongly_connected(graph):
     """
     Finds if the graph is strongly connected or not
     :param graph: The graph
     :return: returns True if the graph is strongly connected, otherwise False
     """
+
+    # DFS function
+
+    # Transpose function
+
+
     result_1 = dfs(graph, 0)
     graph2 = transpose(graph)
     result_2 = dfs(graph2, 0)
