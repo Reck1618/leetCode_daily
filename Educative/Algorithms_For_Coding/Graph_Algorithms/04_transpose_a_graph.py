@@ -12,11 +12,11 @@ def transpose_graph(graph):
 
     transpose = Graph(len(graph.graph))
     for source in range(len(graph.graph)):
-        temp = graph.graph[source]
-        while temp is not None:
-            destination = temp.vertex
+        current_neighbor = graph.graph[source]
+        while current_neighbor is not None:
+            destination = current_neighbor.vertex
             transpose.add_edge(destination, source)
-            temp = temp.next
+            current_neighbor = current_neighbor.next
     return transpose
 
 

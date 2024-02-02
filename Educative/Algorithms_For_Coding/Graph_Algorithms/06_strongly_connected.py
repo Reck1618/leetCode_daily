@@ -8,8 +8,40 @@ def is_strongly_connected(graph):
     """
 
     # DFS function
+    def dfs(graph, source):
+        visited = [False] * len(graph.graph)
+        result = []
+        stack = []
+
+        stack.append(source)
+
+        while stack:
+            current = stack.pop()
+
+            if not visited[current]:
+                result.append(current)
+                visited[current] = True
+
+            current_neighbor = graph.graph[current]
+            while current_neighbor is not None:
+                data = current_neighbor.vertex
+                if not visited[data]:
+                    stack.append(data)
+                current_neighbor = current_neighbor.next
+
+        return result
 
     # Transpose function
+    def transpose(graph):
+        transpose = Graph(len(graph.graph))
+
+        for source in range(len(graph.graph)):
+            current_neighbor = graph.graph[source]
+            while current_neighbor is not None:
+                destination = current_neighbor.vertex
+                transpose.add_edge(destination, source)
+                current_neighbor = current_neighbor.next
+        return transpose
 
 
     result_1 = dfs(graph, 0)

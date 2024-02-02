@@ -26,11 +26,12 @@ def dfs(graph, source):
             result.append(current)
             visited[current] = True
 
-        while graph.graph[current] is not None:
-            data = graph.graph[current].vertex
+        current_neighbor = graph.graph[current]
+        while current_neighbor is not None:
+            data = current_neighbor.vertex
             if not visited[data]:
                 stack.append(data)
-            graph.graph[current] = graph.graph[current].next
+            current_neighbor = current_neighbor.next
 
     return "".join(map(str, result))
 
