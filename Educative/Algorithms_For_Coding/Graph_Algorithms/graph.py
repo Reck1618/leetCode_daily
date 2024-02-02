@@ -2,6 +2,9 @@
 Graph implementation on educative.com
 """
 
+from collections import deque
+
+
 class AdjNode:
     """
     A class to represent the adjacency list of the node
@@ -59,3 +62,32 @@ class Graph:
                 print(" -> {}".format(temp.vertex), end="")
                 temp = temp.next
             print(" \n")
+
+
+    def bfs(self, source=0):
+        """
+        Breadth-First Search
+        :param source: Starting Vertex
+        :return: List of vertices in BFS order
+        """
+        visited = [False] * self.V
+        result = []
+        queue = deque()
+
+        # Enqueue the source vertex
+        queue.append(source)
+        visited[source] = True
+
+        while queue:
+            current = queue.popleft()
+            result.append(current)
+
+            # Explore all adjacent vertices
+            temp = self.graph[current]
+            while temp:
+                if not visited[temp.vertex]:
+                    queue.append(temp.vertex)
+                    visited[temp.vertex] = True
+                temp = temp.next
+
+        return result
