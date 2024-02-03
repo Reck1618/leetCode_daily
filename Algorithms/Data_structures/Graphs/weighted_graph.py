@@ -1,5 +1,5 @@
 """
-Implement a Graph.
+Implement a Weighted Graph.
 """
 
 class Node:
