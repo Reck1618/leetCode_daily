@@ -91,3 +91,45 @@ class Graph:
                 temp = temp.next
 
         return result
+
+
+    def dfs(self, source=0):
+        """
+        Depth-First Search
+        :param source: Starting Vertex
+        :return: List of vertices in DFS order
+        """
+        visited = [False] * self.V
+        result = []
+        stack = []
+
+        stack.append(source)
+
+        while stack:
+            current = stack.pop()
+
+            if not visited[current]:
+                result.append(current)
+                visited[current] = True
+
+            current_neighbor = self.graph[current]
+            while current_neighbor:
+                if not visited[current_neighbor.vertex]:
+                    stack.append(current_neighbor.vertex)
+                current_neighbor = current_neighbor.next
+
+        return result
+
+
+# Main to test the above program
+if __name__ == "__main__":
+    V = 5
+    g = Graph(V)
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+
+    print(g.bfs(0))
+    print(g.dfs(0))
+    g.print_graph()
