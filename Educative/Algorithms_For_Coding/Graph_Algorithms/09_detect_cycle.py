@@ -28,8 +28,9 @@ def detect_cycle(graph):
 
 
     for node in range(graph.V):
-        if detect_cycle_recursive(node):
-            return True
+        if not visited[node]:
+            if detect_cycle_recursive(node):
+                return True
 
     return False
 

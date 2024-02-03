@@ -1,5 +1,5 @@
 """
-Graph implementation on educative.com
+Graph implementation on educative.com - Directed Graph
 """
 
 from collections import deque
@@ -32,6 +32,36 @@ class Graph:
         self.V = vertices
         self.graph = [None] * self.V
 
+    def resize_graph(self, new_size):
+        """
+        Resize the graph array
+        :param new_size: New size of the graph array
+        """
+        new_graph = [None] * new_size
+        for i in range(self.V):
+            new_graph[i] = self.graph[i]
+        self.graph = new_graph
+        self.V = new_size
+
+    def add_node(self, data):
+        """
+        Add node
+        :param data: Vertex to be added
+        """
+        if data < 0:
+            print("Vertex index should be non-negative.")
+            return
+
+        if data >= self.V:
+            self.resize_graph(data + 1)
+
+        if self.graph[data] is not None:
+            print(f"Node {data} already exists")
+            return
+
+        node = AdjNode(data)
+        self.graph[data] = node
+
     def add_edge(self, source, destination):
         """
         add edge
@@ -51,6 +81,46 @@ class Graph:
         #node.next = self.graph[destination]
         #self.graph[destination] = node
 
+    def remove_edge(self, source, destination):
+        """
+        Remove edge
+        :param source: Source Vertex
+        :param destination: Destination Vertex
+        """
+        # Remove the node from the source node
+        temp = self.graph[source]
+        if temp and temp.vertex == destination:
+            self.graph[source] = temp.next
+            return
+
+        while temp:
+            if temp.vertex == destination:
+                break
+            prev = temp
+            temp = temp.next
+
+        if not temp:
+            return
+
+        prev.next = temp.next
+
+    def remove_vertex(self, vertex):
+        """
+        Remove vertex
+        :param vertex: Vertex to be removed
+        """
+        # Iterating over all vertices to remove the specified vertex from their adjacency lists
+        for i in range(self.V):
+            if i != vertex:
+                temp = self.graph[i]
+                while temp:
+                    if temp.vertex == vertex:
+                        self.remove_edge(i, vertex)
+                        break
+                    temp = temp.next
+
+        self.graph[vertex] = None
+
     def print_graph(self):
         """
         A function to print a graph
@@ -62,7 +132,6 @@ class Graph:
                 print(" -> {}".format(temp.vertex), end="")
                 temp = temp.next
             print(" \n")
-
 
     def bfs(self, source=0):
         """
@@ -91,7 +160,6 @@ class Graph:
                 temp = temp.next
 
         return result
-
 
     def dfs(self, source=0):
         """
@@ -129,6 +197,8 @@ if __name__ == "__main__":
     g.add_edge(0, 2)
     g.add_edge(1, 3)
     g.add_edge(1, 4)
+    g.add_node(5)
+    g.add_edge(2, 5)
 
     print(g.bfs(0))
     print(g.dfs(0))
