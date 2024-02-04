@@ -43,9 +43,9 @@ class Graph:
         self.graph = new_graph
         self.V = new_size
 
-    def add_node(self, data):
+    def add_vertex(self, data):
         """
-        Add node
+        Add vertex
         :param data: Vertex to be added
         """
         if data < 0:
@@ -56,11 +56,12 @@ class Graph:
             self.resize_graph(data + 1)
 
         if self.graph[data] is not None:
-            print(f"Node {data} already exists")
-            return
+            return self.graph[data]
 
         node = AdjNode(data)
         self.graph[data] = node
+
+        return node
 
     def add_edge(self, source, destination):
         """
@@ -196,8 +197,9 @@ if __name__ == "__main__":
     g.add_edge(0, 1)
     g.add_edge(0, 2)
     g.add_edge(1, 3)
-    g.add_edge(1, 4)
-    g.add_node(5)
+    g.add_edge(1, 9)
+    g.add_vertex(5)
+    g.add_vertex(7)
     g.add_edge(2, 5)
 
     print(g.bfs(0))
