@@ -5,18 +5,25 @@ is not more than a given number C. Each item can only be selected once, which me
 we put an item in the knapsack or we skip it.
 """
 
-def solve_knapsack(profits, profits_length,  weights, capacity):
+def solve_knapsack(profits, profits_length, weights, capacity):
+    dp = [[-1 for _ in range(capacity + 1)] for _ in range(len(profits))]
 
     def solve(cap, index):
+        nonlocal dp
         if cap <= 0 or index >= profits_length:
             return 0
 
-        profit_1 = 0
+        if dp[index][cap] != -1:
+            return dp[index][cap]
+
+        profit_1, profit_2 = 0, 0
         if weights[index] <= cap:
             profit_1 = profits[index] + solve(cap - weights[index], index + 1)
 
         profit_2 = solve(cap, index + 1)
-        return max(profit_1, profit_2)
+
+        dp[index][cap] = max(profit_1, profit_2)
+        return dp[index][cap]
 
     return solve(capacity, 0)
 
