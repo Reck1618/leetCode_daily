@@ -35,3 +35,4 @@ if __name__ == "__main__":
     print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 5))
     print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 6))
     print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 7))
+    print(solve_knapsack([60, 100, 120], [10, 20, 30], 50))
