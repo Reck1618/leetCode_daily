@@ -5,10 +5,10 @@ is not more than a given number C. Each item can only be selected once, which me
 we put an item in the knapsack or we skip it.
 """
 
-def solve_knapsack(profits, profits_length,  weights, capacity):
+def solve_knapsack(profits, weights, capacity):
 
     def solve(cap, index):
-        if cap <= 0 or index >= profits_length:
+        if cap <= 0 or index >= len(profits):
             return 0
 
         profit_1 = 0
@@ -23,6 +23,6 @@ def solve_knapsack(profits, profits_length,  weights, capacity):
 
 
 if __name__ == "__main__":
-    print(solve_knapsack([1, 6, 10, 16], 4, [1, 2, 3, 5], 5))
-    print(solve_knapsack([1, 6, 10, 16], 4, [1, 2, 3, 5], 6))
-    print(solve_knapsack([1, 6, 10, 16], 4, [1, 2, 3, 5], 7))
+    print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 5))
+    print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 6))
+    print(solve_knapsack([1, 6, 10, 16], [1, 2, 3, 5], 7))
