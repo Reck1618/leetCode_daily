@@ -69,6 +69,31 @@ def longest_common_substr_length_one_dp(s1, s2):
 
     return res
 
+# Sliding window approach
+def longest_common_substr_length_sliding_window(s1, s2):
+    """
+    Finds a longest common substring length
+    :param s1: First string
+    :param s2: Second string
+    :return: Length of longest common substring
+    """
+    if not s1 or not s2:
+        return 0
+
+    max_length = 0
+    window_start = 0
+    s2_set = set(s2)
+
+    for window_end in range(len(s1)):
+        if s1[window_end] in s2_set:
+            while s1[window_start:window_end+1] not in s2:
+                window_start += 1
+            max_length = max(max_length, window_end - window_start + 1)
+        else:
+            window_start = window_end + 1
+
+    return max_length
+
 
 # Driver code to test the above function
 if __name__ == '__main__':
