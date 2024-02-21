@@ -3,8 +3,29 @@ Given two strings, s1 and s2, write a function that finds and returns the length
 """
 
 # Bottom-up approach with dp
-
 def longest_common_substr_length(s1, s2):
+    """
+    Finds a longest common substring length
+    :param s1: First string
+    :param s2: Second string
+    :return: Length of longest common substring
+    """
+    if not s1 or not s2:
+        return 0
+
+    dp = [[0 for _ in range(len(s2) + 1)] for _ in range(len(s1) + 1)]
+    res = 0
+
+    for i in range(1, len(s1) + 1):
+        for j in range(1, len(s2) + 1):
+            if s1[i - 1] == s2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                res = max(res, dp[i][j])
+    return res
+
+
+# Bottom-up approach with dp without initial empty row and column
+def longest_common_substr_length_old(s1, s2):
     """
     Finds a longest common substring length
     :param s1: First string
