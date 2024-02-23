@@ -1,5 +1,5 @@
 """
-Given a list of integers, write a function to find if any two subsets of the input list exist—such that the sum of both subsets is equal. 
+Given a list of integers, write a function to find if any two subsets of the input list exist—such that the sum of both subsets is equal.
 You can assume that the list will only consist of positive integers.
 """
 # recursive top-down approach
