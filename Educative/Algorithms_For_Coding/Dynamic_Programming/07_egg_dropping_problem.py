@@ -55,3 +55,88 @@ def egg_drop_2(eggs, floors):
 
 
 # Optimized bottom-up approach
+def egg_drop_3(eggs, floors):
+    if eggs <= 0:
+        return eggs
+
+    if floors <= 1 or eggs == 1:
+        return floors
+
+    dp = [[0 for _ in range(eggs + 1)] for _ in range(floors + 1)]
+
+    for f in range(1, floors + 1):
+        for e in range(1, eggs + 1):
+            dp[f][e] = dp[f - 1][e - 1] + dp[f - 1][e] + 1
+        if dp[f][eggs] >= floors:
+            return f
+
+
+# Binary search approach
+
+def egg_drop_4(eggs, floors):
+    """
+    Figures out which floor of the skyscraper that the eggs can be safely dropped from without breaking.
+    :param eggs: Number of stories of the skyscraper
+    :param floors: Number of eggs
+    :return: Return the floor
+    """
+
+    def binomial_coeff(x, n, k):
+        """
+        Find sum of binomial coefficients xCi (where i varies from 1 to n).
+        If the sum becomes more than K
+        :param x: Mid point
+        :param n: Eggs
+        :param k: Floor
+        :return: Binomial Coefficient
+        """
+
+        sum = 0
+        term = 1
+
+        for i in range(1, n + 1):
+            if sum < k:
+                term *= x - i + 1
+                term //= i
+                sum += term
+
+        return sum
+
+
+    # If there are no eggs, then there can't be any tries
+    if eggs <= 0:
+        return 0
+
+    # If there are no floors, then no trials needed. OR if there is
+    # one floor, one trial needed.
+    if floors == 1 or floors == 0:
+        return floors
+
+    # We need k trials for one egg and k floors
+    if eggs == 1:
+        return floors
+
+        # Initialize low and high as 1st
+    # and last floors
+    low = 1
+    high = floors
+
+    # Do binary search, for every mid,
+    # find sum of binomial coefficients and
+    # check if the sum is greater than k or not.
+    while low < high:
+
+        mid = (low + high) // 2
+
+        if binomial_coeff(mid, eggs, floors) < floors:
+            low = mid + 1
+        else:
+            high = mid
+
+    return low
+
+
+# Driver code to test the above function
+if __name__ == '__main__':
+
+    print(egg_drop_4(2, 13))
