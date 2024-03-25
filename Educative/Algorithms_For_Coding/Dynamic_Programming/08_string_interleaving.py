@@ -37,7 +37,7 @@ def find_strings_interleaving(m, n, p):
     return helper(0, 0, 0)
 
 # Bottom-up solution -> Start form the beginning of the strings
-def find_strings_interleaving(m, n, p):
+def find_strings_interleaving_one(m, n, p):
     """
     Find the interleaving strings
     :param m: String 1
@@ -68,7 +68,7 @@ def find_strings_interleaving(m, n, p):
 
 
 # Bottom-up solution -> Start form the end of the strings (NeetCode)
-def find_strings_interleaving(m, n, p):
+def find_strings_interleaving_two(m, n, p):
     """
     Find the interleaving strings
     :param m: String 1
@@ -94,8 +94,9 @@ def find_strings_interleaving(m, n, p):
 
 
 
+# Driver code to test the above function
+if __name__ == '__main__':
 
-
-
-
-
+    print(find_strings_interleaving("abd", "cef", "adcbef"))
+    print(find_strings_interleaving("abc", "def", "abdccf"))
+    print(find_strings_interleaving("abcdef", "mnop", "mnaobcdepf"))
